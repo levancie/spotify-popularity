@@ -1,0 +1,25 @@
+Features:
+
+single - (Bool) Standalone single or part of an album/compilation 
+danceability - (Float) Spotify-provided measurement of musical quality, scaled 0 to 1 
+energy - see above 
+instrumentalness - see above 
+explicit - (Bool) Includes explicit lyrics 
+collab - (Bool) Includes one or more guest artists 
+timesig - (Category) Time signature; a rhythmic measurement 
+duration_s - (Float) Length in seconds, scaled 0 to 1 
+track_number - (Float) Track number, max 25, scaled 0 to 1 
+popularity - (Bool, TARGET) 1 if raw popularity score > 50, else 0 
+
+
+Parameters: 
+
+GradientBoostingClassifier(max_depth=5, 
+max_features='auto', 
+min_samples_leaf=4, 
+min_samples_split=10, 
+n_estimators=50, 
+random_state=42) 
+
+
+F1 test score: 0.822
