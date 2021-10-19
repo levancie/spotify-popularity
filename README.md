@@ -1,4 +1,4 @@
-# spotify-popularity
+# Predicting Track Popularity on Spotify
 Capstone project #2 for Springboard Data Science Career Track, by Leo Evancie
 
 This is the second of three capstone projects in the course, and the first
