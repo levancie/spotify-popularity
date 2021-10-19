@@ -6,6 +6,8 @@ _[Spotify](https://www.spotify.com/us/) hosts some 70 million songs and caters t
 ## 1. Data Wrangling
 _Code notebook found [here](https://github.com/levancie/spotify-popularity/blob/main/notebooks/1-Data-Wrangling.ipynb)._
 
+![Popularity](/images/popularity-dist.png)
+
 Using the [`Spotipy`](https://github.com/plamere/spotipy) library, I scraped 10,000 tracks from the Spotify API -- one thousand tracks from each of the past ten years. From among the myriad available fields, I pulled several empirical features (e.g., track duration, tempo, song name) as well as Spotify's calculations of several less tangible musical characteristics (e.g., 'danceability', 'instrumentalness', and 'acousticness', each ranging from 0.00 to 1.00). The target, popularity, is an integer ranging from 0 to 100.
 
 While the very highest popularity ratings tended to occur in tracks from the most recent year, each of the ten years showed bimodal distributions, with several tracks clustering around zero and the rest clustered around 60-80. The bimodality of popularity across years lent itself well to a binary representation of popularity, where any track with a popularity score greater than 50 could be considered popular. Thus, rather than attempting to predict a precise popularity score via regression, I would instead attempt to classify popular vs. unpopular.
@@ -23,6 +25,8 @@ I inspected each feature for its relationship to popularity. I found that:
 * track `duration` is important to popularity, peaking at durations of about 200 seconds
 * tracks with a standard `time signature` (i.e., rhythmic structure) tend to be popular more than those with less conventional structures
 
+![Singles](/images/singles-popularity.png)
+
 ## 3. Preprocessing
 _Code notebook found [here](https://github.com/levancie/spotify-popularity/blob/main/notebooks/3-Preprocessing.ipynb)._
 
@@ -38,6 +42,8 @@ Track duration, measured in seconds, was rescaled straightforwardly.
 _Code notebook found [here](https://github.com/levancie/spotify-popularity/blob/main/notebooks/4-Modeling.ipynb)._
 
 With training data accounting for 70% of my original 10,000-track dataset, I tested four of `scikit-learn`'s most popular machine learning algorithms for classification: `LogisticRegression()`, `KNeighborsClassifier()`, `RandomForestClassifier()`, and `GradientBoostingClassifier`. I employed hyperparameter tuning for each, and recorded the wall-time required to both train the model and generate predictions from the test set.
+
+![Models](/images/model-comparison.png)
 
 Overall, I chose the gradient boosting classifier as the best model overall. Like the other ensemble model (random forest), the gradient boosting classifier yielded strong f1 scores. But what set it apart from the random forest were the lesser degree of overfit to the training data, and especially the drastically shorter prediction times.
 
