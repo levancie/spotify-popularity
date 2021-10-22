@@ -1,7 +1,7 @@
 # Predicting Track Popularity on Spotify
 by Leo Evancie
 
-_[Spotify](https://www.spotify.com/us/) hosts some 70 million songs and caters to over 300 million listeners worldwide. Each track has an associated popularity score, derived from listener engagement. So, Spotify can determine on a post hoc basis whether a given song performs well on the platform. But what about new music? Using the data science method, can we use song characteristics like duration, lyrical explicitness -- even abstract concepts like “danceability” -- to predict whether a song will be popular? Equipped with such predictions, Spotify could boost engagement by recommending new music more intelligently._
+_[Spotify](https://www.spotify.com/us/) hosts some 70 million songs and caters to over 300 million listeners worldwide<sup>[1](https://www.businessofapps.com/data/spotify-statistics/)</sup>. Each track has an associated popularity score, derived from listener engagement. So, Spotify can determine on a post hoc basis whether a given song performs well on the platform. But what about new music? Using the data science method, can we use song characteristics like duration, lyrical explicitness -- even abstract concepts like “danceability” -- to predict whether a song will be popular? Equipped with such predictions, Spotify could boost engagement by recommending new music more intelligently._
 
 ## 1. Data Wrangling
 _Code notebook found [here](https://github.com/levancie/spotify-popularity/blob/main/notebooks/1-Data-Wrangling.ipynb)._
