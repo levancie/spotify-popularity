@@ -1,14 +1,14 @@
 # Predicting Track Popularity on Spotify
 by Leo Evancie
 
-_[Spotify](https://www.spotify.com/us/) hosts some 70 million songs and caters to over 300 million listeners worldwide. Each track has an associated popularity score, derived from listener engagement. So, Spotify can determine on a post hoc basis whether a given song performs well on the platform. But what about new music? Using the data science method, can we use song characteristics like duration, lyrical explicitness -- even abstract concepts like “danceability” -- to predict whether a song will be popular? Spotify could use such predictions to guide decisions about which new music to promote._
+_[Spotify](https://www.spotify.com/us/) hosts some 70 million songs and caters to over 300 million listeners worldwide. Each track has an associated popularity score, derived from listener engagement. So, Spotify can determine on a post hoc basis whether a given song performs well on the platform. But what about new music? Using the data science method, can we use song characteristics like duration, lyrical explicitness -- even abstract concepts like “danceability” -- to predict whether a song will be popular? Equipped with such predictions, Spotify could boost engagement by recommending new music more intelligently._
 
 ## 1. Data Wrangling
 _Code notebook found [here](https://github.com/levancie/spotify-popularity/blob/main/notebooks/1-Data-Wrangling.ipynb)._
 
-![Popularity](/images/popularity-dist.png)
-
 Using the [`Spotipy`](https://github.com/plamere/spotipy) library, I scraped 10,000 tracks from the Spotify API -- one thousand tracks from each of the past ten years. From among the myriad available fields, I pulled several empirical features (e.g., track duration, tempo, song name) as well as Spotify's calculations of several less tangible musical characteristics (e.g., 'danceability', 'instrumentalness', and 'acousticness', each ranging from 0.00 to 1.00). The target, popularity, is an integer ranging from 0 to 100.
+
+![Popularity](/images/popularity-dist.png)
 
 While the very highest popularity ratings tended to occur in tracks from the most recent year, each of the ten years showed bimodal distributions, with several tracks clustering around zero and the rest clustered around 60-80. The bimodality of popularity across years lent itself well to a binary representation of popularity, where any track with a popularity score greater than 50 could be considered popular. Thus, rather than attempting to predict a precise popularity score via regression, I would instead attempt to classify popular vs. unpopular.
 
@@ -47,4 +47,10 @@ With training data accounting for 70% of my original 10,000-track dataset, I tes
 
 Overall, I chose the gradient boosting classifier as the best model overall. Like the other ensemble model (random forest), the gradient boosting classifier yielded strong f1 scores. But what set it apart from the random forest were the lesser degree of overfit to the training data, and especially the drastically shorter prediction times.
 
-###### This is a capstone project for [Springboard's](https://www.springboard.com/) Data Science Career Track. Thank you to Mukesh Mithrakumar for your mentorship, to Blaine Bateman for the many project reviews, and to [Paul Lemere](https://github.com/plamere) for the Spotipy library. Leo Evancie, 2021.
+## Credits
+
+Thank you to Mukesh Mithrakumar for your mentorship, to Blaine Bateman for the many project reviews, and to [Paul Lemere](https://github.com/plamere) for the Spotipy library.
+
+This is a capstone project for [Springboard's](https://www.springboard.com/) Data Science Career Track.
+
+Leo Evancie, 2021.
